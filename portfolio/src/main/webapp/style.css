@@ -1,9 +1,33 @@
-#content {
+#content 
+{
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
-#greeting-container {
+#thing-container 
+{
   margin-top: 20px;
+}
+
+#images
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  width: 50%;
+  height: auto;
+}
+
+#text
+{
+  color: white;
+  font-family: sans-serif;
+}
+
+body
+{
+  background-color: cornflowerblue;
 }
