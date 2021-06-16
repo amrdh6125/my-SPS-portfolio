@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a class="active" href="submissions.html">Contact Me</a></li>
+    </ul>
+    <title>Submissions</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div id="content">
+          <div id="text">
+              <!--User send text-->
+              <h2 style="padding: 20px; margin-top:50px">Send me a message!:</h2>
+              <form action="/submissions" method="POST">
+                <p>Enter some text here:</p>
+                <p>Name: <textarea name="name-input"></textarea></p>
+                <p>Email: <textarea name="email-input"></textarea></p>
+                <p>Message: <textarea name="message-input"></textarea></p>
+                <br/>
+                <input type="submit" />
+              </form>
+          </div>
+      </div>
+  </body>
