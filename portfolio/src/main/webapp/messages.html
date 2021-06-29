@@ -6,21 +6,22 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="submissions.html">Contact Me</a></li>
-        <li><a href="messages.html">Messages</a></li>
+        <li><a class="active" href="messages.html">Messages</a></li>
         <li><a href="translate.html">Translate</a></li>
         <li><a href="https://www.linkedin.com/in/angel-ramos-6aba69213/">LinkedIn</a></li>
         <li><a href="https://github.com/amrdh6125">GitHub</a></li>
     </ul>
-    <title>Mesage Submitted</title>
+    <title>Messages</title>
     <link rel="stylesheet" href="style.css">
+    <script src="loadData.js"></script>
   </head>
-  <body>
+  <body onload="showDatastorePage()">
       <div id="content">
           <div id="text">
-              <!--Submitted-->
-              <h2 style="padding: 20px; margin-top:50px">Your message has been submitted!</h2>
-              <p>We will try to reply as soon as possible.</p>
-              <p>Click <a href="/messages">here</a> to see Datastore messages.</p>
+              <!--Messages-->
+              <h1 style="padding: 20px; margin-top:50px">Messages:</h1>
+              <p id="message-container"></p>
           </div>
       </div>
-  </body>
+    </body>
+</html>

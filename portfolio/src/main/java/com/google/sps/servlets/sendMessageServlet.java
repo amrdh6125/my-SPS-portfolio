@@ -1,31 +1,38 @@
 package com.google.sps.servlets;
 
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.FullEntity;
+import com.google.cloud.datastore.KeyFactory;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 @WebServlet("/submissions")
-public class sendMessageServlet extends HttpServlet {
-
+public class sendMessageServlet extends HttpServlet 
+{
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException 
+  {
+    String name = Jsoup.clean(request.getParameter("name"), Whitelist.none());
+    String email = Jsoup.clean(request.getParameter("email"), Whitelist.none());
+    String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
 
-    // Get the value entered in the form.
-    String nameValue = request.getParameter("name-input");
-    String emailValue = request.getParameter("email-input");
-    String messageValue = request.getParameter("message-input");
-
-    // Print the value so you can see it in the server logs.
-    System.out.println(nameValue);
-    System.out.println(emailValue);
-    System.out.println(messageValue);
-
-    // Write the value to the response so the user can see it.
-    response.getWriter().println("You submitted: " + nameValue);
-    response.getWriter().println("You submitted: " + emailValue);
-    response.getWriter().println("You submitted: " + messageValue);
+    //Send to Datastore
+    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Task");
+    FullEntity taskEntity =
+        Entity.newBuilder(keyFactory.newKey())
+            .set("name", name)
+            .set("email", email)
+            .set("message", message)
+            .build(); 
+    datastore.put(taskEntity);
     response.sendRedirect("http://aramos-sps-summer21.appspot.com/submitted.html");
   }
 }

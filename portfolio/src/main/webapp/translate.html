@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="submissions.html">Contact Me</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a class="active" href="translate.html">Translate</a></li>
+        <li><a href="https://www.linkedin.com/in/angel-ramos-6aba69213/">LinkedIn</a></li>
+        <li><a href="https://github.com/amrdh6125">GitHub</a></li>
+    </ul>
+    <title>Translate</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="translateJS.js"></script>
+  </head>
+  <body>
+      <div id="content">
+          <div id="text">
+              <h1 style="padding: 20px; margin-top:50px">Translate</h1>
+              <p>Type a message and select a language, then click submit to translate it.</p>
+
+              <!--Type text and select language-->
+              <textarea id="textTranslate"></textarea>
+              <select id="textLanguage">
+                <option value="en">English</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="es">Spanish</option>
+                <option value="hi">Hindi</option>
+                <option value="ar">Arabic</option>
+              </select>
+
+              <!--Translate-->
+              <button onclick="requestTranslation();">Translate</button>
+
+              <!--Result-->
+              <div id="result"></div>
+          </div>
+      </div>
+  </body>
+</html>

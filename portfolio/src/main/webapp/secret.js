@@ -2,7 +2,6 @@ async function showScramPage()
 {
     const responseServer = await fetch('/scram');
     const textResponse = await responseServer.json();
-
     const scramContainer = document.getElementById('scram-container');
     scramContainer.innerHTML = '';
 

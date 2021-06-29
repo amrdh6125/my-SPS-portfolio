@@ -32,6 +32,19 @@
   font-family: sans-serif;
 }
 
+#textTranslate
+{
+  width: 500px;
+  height: 125px
+}
+
+#textLanguage 
+{
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 body
 {
   background-color: white;
